@@ -1,8 +1,35 @@
 import java.util.Map;
 
+
+
+
+//Represents following json object....
+	/*
+	 * data: {
+	 *     editorData:{
+	 *        //some fields 
+	 *     
+	 *     }
+	 *     
+	 *     optionMirroring: Boolean
+	 *     allowCheckPoints: Boolean
+	 *     stitches: {
+	 *     //Some key value pairs
+	 *     
+	 *     
+	 *     
+	 *     }
+	 *     
+	 *     
+	 *     
+	 * 
+	 * 
+	 * }
+	 * 
+	 * */
 public class Data {
 	private boolean optionMirroring;
-	private String initial;
+	private String initialKey;
 	private EditorData editorData;
 	private Map<String,IWEvent> stitches;
 	private boolean allowCheckPoints;
@@ -15,10 +42,10 @@ public class Data {
 		this.optionMirroring = optionMirroring;
 	}
 	public String getInitial() {
-		return initial;
+		return initialKey;
 	}
 	public void setInitial(String initial) {
-		this.initial = initial;
+		this.initialKey = initial;
 	}
 	public EditorData getEditorData() {
 		return editorData;

@@ -89,7 +89,14 @@ public class DataWriter {
 					sheet.addCell(buttonTextCell);
 					// Get the event link
 					String actionEventName = (String) unknown.get("linkPath");
+					
 					IWEvent actionEvent = eventMap.get(actionEventName);
+					if (actionEvent == null){
+						System.out.println("Button is created, but event is not actually "
+								+ "created for the button to lead to.");
+						return;
+						
+					}
 					// Extract the ID and put into the table
 					int actionEventId = actionEvent.getEventID();
 					Number actionEventIdCell = new Number(currActionIdCol, row, actionEventId);
@@ -226,7 +233,7 @@ public class DataWriter {
 
 	}
 	
-	private static int isDialogEventSafe(IWEvent currEvent){
+	/*private static int isDialogEventSafe(IWEvent currEvent){
 		List<Object> contents = currEvent.getContent();
 		boolean containsDialogLink;
 		for(int i = 1; i < contents.size(); i++){
@@ -242,7 +249,7 @@ public class DataWriter {
 			}
 			
 		}
-	}
+	}*/
 
 	private static void addRowEvent(IWEvent event, WritableSheet sheet, int row) throws Exception {
 		boolean isNormalEvent = isNormalEvent(event);
